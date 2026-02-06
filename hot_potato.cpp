@@ -1,12 +1,15 @@
 #include<iostream>
-#include<list>
+#include<list> //including <list> Lirary
 
 using namespace std;
 
 int main()
-{
+{   
+    //Declaring the <int> lst of List
     list <int> lst;
         int N, M;
+        // N is Number of People
+        // M is Number of Turn's playing
     
     cout << "Hot Potato Game!" << endl;
     
@@ -48,7 +51,7 @@ int main()
         if(temp == lst.end()){
             temp = lst.begin();
         }
-        
+
         cout << "Eliminated: " << *current_people << endl;
 
         lst.erase(current_people);
