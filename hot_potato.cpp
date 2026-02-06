@@ -36,16 +36,24 @@ int main()
     list<int>::iterator current_people = people;
 
     while(lst.size() > 1){
-        for(int i = 1; i < M+1; i++){
+        for(int i = 1; i <= M; i++){
             current_people++;
             if(current_people == lst.end()){
                 current_people = lst.begin();
             }
         }
+
+        list<int>::iterator temp = current_people;
+        temp++;
+        if(temp == lst.end()){
+            temp = lst.begin();
+        }
+        
         cout << "Eliminated: " << *current_people << endl;
 
         lst.erase(current_people);
-    
+        current_people = temp;
+
     }
     
     cout << "The winner is " << lst.front() << endl;
