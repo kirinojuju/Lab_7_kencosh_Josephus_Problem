@@ -1,8 +1,9 @@
 #include<iostream>
-#include<list> //including <list> Lirary
+#include<list> //including <list> Library
 
 using namespace std;
 
+//-----------------MAIN-----------------//
 int main()
 {   
     // Declaring the <int> lst of List
@@ -30,6 +31,8 @@ int main()
     // Decalaring the Iterator of list (pointer of list) people is beginning of lst
     list<int>::iterator people = lst.begin();
 
+
+    // --- Printing Current Players Section ---
     // Cout the Current Player
     for(int i = 0; i < N; i++){
         cout << "Person: " << *people << " ";
@@ -40,14 +43,18 @@ int main()
     }
     cout << endl;
 
+
+    // --- Game Logic Section ---
     // Decalaring the Iterator of list (pointer of list) current_people is people
     list<int>::iterator current_people = people;
     
     // Looping Game Until the size of list is less than 1
     while(lst.size() > 1){
+
+        // --- Passing the Potato ---
         // Looping the list of turn 
         for(int i = 1; i <= M; i++){
-            current_people++;
+            current_people++; // Move to the next person
             if(current_people == lst.end()){
                 current_people = lst.begin(); // Make it to be Circular Linked list
             }
@@ -60,14 +67,18 @@ int main()
             temp = lst.begin();
         }
 
+        // --- Elimination Preparation ---
         cout << "Eliminated: " << *current_people << endl;
 
+        // --- Elimination ---
         lst.erase(current_people); // Delete the position of Turn to be
         current_people = temp; // return temp to current_people
 
     }
     
     cout << "The winner is " << lst.front() << endl; // Cout the Winner
-
+    
+    // --- Winner Announcement ---
     return 0;
 }
+//----------------- END-----------------//
